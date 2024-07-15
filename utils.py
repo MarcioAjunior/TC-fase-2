@@ -13,4 +13,32 @@ class Utils:
 
         return latest_file
     
+    @staticmethod
+    def clean_csv(line):
+        replacements = {
+            'á': 'a',
+            'â': 'a',
+            'à': 'a',
+            'é': 'e',
+            'ê': 'e',
+            'í': 'i',
+            'ó': 'o',
+            'ô': 'o',
+            'ú': 'u',
+            'ü': 'u',
+            'ç': 'c',
+            'ñ': 'n',
+            'ã': 'a',
+            'õ': 'o',
+            '@': 'A',
+            '#': '',
+            '%': 'percent',
+            '$': '',
+            '&': 'E',
+            '*': 'x',
+        }
+        
+        clened_line =  ''.join(replacements.get(c, c) for c in line)      
+        
+        return clened_line
     

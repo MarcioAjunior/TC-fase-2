@@ -9,7 +9,7 @@ import os
 from utils import Utils
 
 DOWNLOAD_DIR = "C:\\Users\\marci\\Downloads"
-WORKDIR = ".//docs//csv"
+WORKDIR = ".//docs//01csv"
 
 def get_file():
     try:
@@ -30,6 +30,8 @@ def get_file():
         
     try:
         latest_file = Utils.get_latest_file(DOWNLOAD_DIR, 'IBOVDia')
+        
+        
         
         file_move = os.path.join(DOWNLOAD_DIR, latest_file)
         
