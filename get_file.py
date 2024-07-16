@@ -31,8 +31,6 @@ def get_file():
     try:
         latest_file = Utils.get_latest_file(DOWNLOAD_DIR, 'IBOVDia')
         
-        
-        
         file_move = os.path.join(DOWNLOAD_DIR, latest_file)
         
         shutil.move(file_move, WORKDIR)
