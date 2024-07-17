@@ -38,8 +38,7 @@ class Utils:
             '*': 'x',
         }
         
-        if line.endswith('\n'):
-            line = line.rstrip('\n')
+        line = line.rstrip('\n')
         
         clened_line =  ''.join(replacements.get(c, c) for c in line)      
         

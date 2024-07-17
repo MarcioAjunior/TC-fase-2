@@ -6,10 +6,10 @@ if __name__ == '__main__':
     
     if get_file() : #get_file()
         print('ARQUIVO BAIXADO E MOVIDO COM SUCESSO')
-        if process_file():
+        if process_file(): #process_file()
             print('ARQUIVO PROCESSADO COM SUCESSO')
-            if process_pandas():
+            if process_pandas(): #process_pandas
                 print('DATAFRAME PROCESSADO COM SUCESSO')
-                if submit_parquet():       
+                if submit_parquet() : #submit_parquet()       
                     print('ARQUIVO ENVIADO PARA AWS COM SUCESSO')
     

@@ -22,7 +22,12 @@ def process_pandas():
         column_names.remove("break_line")
         df = df[column_names]
         
+        df['qtd_teorica'] = df['qtd_teorica'].str.replace('.', '').astype(int)
         df['tipo'] = df['tipo'].str.replace(r'\s+', '-', regex=True)
+        df['date_parquet'] = datetime.datetime.now()
+        df['date_parquet'] = pd.to_datetime(df['date_parquet'])
+
+        
         df.to_parquet(f'{absolute_processed_parquet}\\processed_parquet_{today_str}.parquet', engine='pyarrow')
         
         return True
