@@ -18,7 +18,7 @@ def submit_parquet():
 
         latest_file = Utils.get_latest_file(absolute_parquet,'processed_parquet')
 
-        target = '{}/raw_parquet_{}'.format(BASE_FOLDER, today_str)       
+        target = f'{BASE_FOLDER}/{today_str}/raw_parquet_{latest_file}'     
 
         s3_client.upload_file(os.path.join(WORKDIR, latest_file), BUCKET, target)
         

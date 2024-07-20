@@ -4,12 +4,12 @@ if __name__ == '__main__':
     from process_pandas import process_pandas
     from submit_parquet import submit_parquet
     
-    if get_file() : #get_file()
+    if True: #get_file()
         print('ARQUIVO BAIXADO E MOVIDO COM SUCESSO')
-        if process_file(): #process_file()
+        if True : #process_file() 
             print('ARQUIVO PROCESSADO COM SUCESSO')
-            if process_pandas(): #process_pandas
+            if process_pandas():  
                 print('DATAFRAME PROCESSADO COM SUCESSO')
-                if submit_parquet() : #submit_parquet()       
+                if True : #submit_parquet()       
                     print('ARQUIVO ENVIADO PARA AWS COM SUCESSO')
     

@@ -2,6 +2,7 @@ import pandas as pd
 import os
 from utils import Utils
 import datetime
+import re
 
 WORKDIR = ".//docs//02processed_csv"
 SAVE_DIR = ".//docs//03parquet"
@@ -9,6 +10,10 @@ SAVE_DIR = ".//docs//03parquet"
 def process_pandas():
     try:
         latest_file = Utils.get_latest_file(WORKDIR, 'processed_csv')
+        
+        date_ibov = re.search(r'[0-9]{2}-[0-9]{2}-[0-9]{4}', latest_file).group()
+        
+        date_ibov = Utils.get_date_from_str(date_ibov)
         
         column_names = ["codigo", "acao", "tipo", "qtd_teorica", "part", "break_line"]
             
@@ -22,13 +27,26 @@ def process_pandas():
         column_names.remove("break_line")
         df = df[column_names]
         
+        #Qtd teorica
         df['qtd_teorica'] = df['qtd_teorica'].str.replace('.', '').astype(int)
+        
+        #Tipo
         df['tipo'] = df['tipo'].str.replace(r'\s+', '-', regex=True)
+        
+        #Date parquet
         df['date_parquet'] = datetime.datetime.now()
         df['date_parquet'] = pd.to_datetime(df['date_parquet'])
-
         
-        df.to_parquet(f'{absolute_processed_parquet}\\processed_parquet_{today_str}.parquet', engine='pyarrow')
+        #Date ibov
+        df['date_ibov'] = pd.to_datetime(date_ibov)
+        
+        #Acao
+        df['acao'] = df['acao'].apply(Utils.multiple_replace)
+        
+        
+        print(df)
+        
+        #df.to_parquet(f'{absolute_processed_parquet}\\processed_parquet_{today_str}.parquet', engine='pyarrow')
         
         return True
     except Exception as e :

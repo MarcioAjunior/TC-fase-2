@@ -1,4 +1,6 @@
 import os
+import datetime
+import re
 
 def modification_date(file, path):
     complet_workdir = os.path.join(path, file)
@@ -43,4 +45,27 @@ class Utils:
         clened_line =  ''.join(replacements.get(c, c) for c in line)      
         
         return clened_line
+    
+    @staticmethod
+    def get_date_from_str(str = ''): 
+        try:
+            date = list(map(lambda x : int(x), str.split('-')))
+            date = datetime.date(day=date[0], month=date[1], year=date[2])
+            return date
+        except Exception as e:
+            print(e)
+            return None
+    
+    @staticmethod 
+    def multiple_replace(str = ''):
+        
+        matches = re.findall(r'[/\.\s+]' ,str)
+        
+        for match in matches:
+            if match == '.':
+                str = str.replace(match, '')
+                continue
+            str = str.replace(match, '-')
+        
+        return str
     
