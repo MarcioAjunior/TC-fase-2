@@ -7,13 +7,12 @@ import re
 WORKDIR = ".//docs//02processed_csv"
 SAVE_DIR = ".//docs//03parquet"
 
+
 def process_pandas():
     try:
         latest_file = Utils.get_latest_file(WORKDIR, 'processed_csv')
         
-        date_ibov = re.search(r'[0-9]{2}-[0-9]{2}-[0-9]{4}', latest_file).group()
-        
-        date_ibov = Utils.get_date_from_str(date_ibov)
+        date_ibov = Utils.get_date_from_str(latest_file)
         
         column_names = ["codigo", "acao", "tipo", "qtd_teorica", "part", "break_line"]
             
@@ -38,19 +37,18 @@ def process_pandas():
         df['date_parquet'] = pd.to_datetime(df['date_parquet'])
         
         #Date ibov
-        df['date_ibov'] = pd.to_datetime(date_ibov)
+        df['date_ibov'] = date_ibov
+        df['date_ibov'] = pd.to_datetime(df['date_ibov'])
         
         #Acao
         df['acao'] = df['acao'].apply(Utils.multiple_replace)
-        
-        
-        print(df)
-        
-        #df.to_parquet(f'{absolute_processed_parquet}\\processed_parquet_{today_str}.parquet', engine='pyarrow')
+    
+        df.to_parquet(f'{absolute_processed_parquet}\\processed_parquet_{today_str}.parquet', engine='pyarrow')
         
         return True
     except Exception as e :
         print('Não foi possivel processar e criar PARQUET ', e)
         return False
         
-    
+# if __name__ == '__main__':
+#     process_pandas()

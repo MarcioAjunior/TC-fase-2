@@ -49,8 +49,11 @@ class Utils:
     @staticmethod
     def get_date_from_str(str = ''): 
         try:
+            
+            str = re.search(r'[0-9]{2}-[0-9]{2}-[0-9]{4}', str).group()
+            
             date = list(map(lambda x : int(x), str.split('-')))
-            date = datetime.date(day=date[0], month=date[1], year=date[2])
+            date = datetime.datetime(day=date[0], month=date[1], year=date[2])
             return date
         except Exception as e:
             print(e)
