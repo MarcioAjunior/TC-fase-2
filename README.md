@@ -1,4 +1,4 @@
-# Tech Challenge (TC)
+# Tech Challenge (TC) Marcio Luz Jr.
 
 Este repositório contém a implementação do Tech Challenge. O projeto está dividido em quatro atividades principais, descritas abaixo.
 
@@ -31,9 +31,11 @@ Este repositório contém a implementação do Tech Challenge. O projeto está d
     ```sh
     python -m venv venv
 3. Ative o ambiente virtual:
+   ```sh
    .\venv\Scripts\activate
-4. pip install -r requirements.txt
-   pip install -r requirements.txt
+4. Instala as dependencias:
+   ```sh
+    pip install -r requirements.txt
 
 ### Linux
 
@@ -42,19 +44,22 @@ Este repositório contém a implementação do Tech Challenge. O projeto está d
    git clone https://github.com/seu-usuario/seu-repositorio.git
    cd seu-repositorio
 2. Crie um ambiente virtual:
-   python3 -m venv venv
+    ```sh
+    python3 -m venv venv
 3. Ative o ambiente virtual:
-   source venv/bin/activate
+    ```sh
+    source venv/bin/activate
 4. Instale as dependências:
-   pip install -r requirements.txt
+    ```sh
+    pip install -r requirements.txt
 
 ### Crie a seguinte estrutura na raiz do projeto
-
+```shell
 ├── docs
 │   ├── 01csv
 │   ├── 02processed_csv
 │   ├── 03parquet
-
+```
 
 ### Implementação com AWS.
 
