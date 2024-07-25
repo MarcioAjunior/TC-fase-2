@@ -64,3 +64,6 @@ Este repositório contém a implementação do Tech Challenge. O projeto está d
 ### Implementação com AWS.
 
 Para fornecer as credencias utilize um arquivo separado em /~.aws/credentials.
+
+### Diagrama contemplado.
+![Descrição da imagem](Diag.png)
