@@ -28,7 +28,8 @@ Este repositório contém a implementação do Tech Challenge. O projeto está d
    git clone https://github.com/seu-usuario/seu-repositorio.git
    cd seu-repositorio
 2. Crie um ambiente virtual:
-   python -m venv venv
+    ```sh
+    python -m venv venv
 3. Ative o ambiente virtual:
    .\venv\Scripts\activate
 4. pip install -r requirements.txt
