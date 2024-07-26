@@ -65,4 +65,8 @@ Este repositório contém a implementação do Tech Challenge. O projeto está d
 
 Para fornecer as credencias utilize um arquivo separado em /~.aws/credentials.
 
+### Video de utilização:
+https://youtu.be/oHdKUZcfifc
+
 ![Descrição da imagem](Diag.png)
+
