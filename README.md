@@ -2,14 +2,14 @@
 
 Este repositório contém a implementação do Tech Challenge. O projeto está dividido em quatro atividades principais, descritas abaixo.
 
-- Realizar scrap do pregão do dia no site da B3 (https://sistemaswebb3-listados.b3.com.br).
+- Realizar scrap do pregão do dia no site da B3 (https://sistemaswebb3-listados.b3.com.br/indexPage/day/IBOV).
 - Processar o arquivo baixado.
 - Submeter o arquivo processado em um carregamente em batch com a AWS.
 
 
 ## Estrutura do Projeto
 
-- `get_file.py`: Utiliza Selenium para fazer o download do arquivo do pregão do site da B3 (https://sistemaswebb3-listados.b3.com.br).
+- `get_file.py`: Utiliza Selenium para fazer o download do arquivo do pregão do site da B3 (https://sistemaswebb3-listados.b3.com.br/indexPage/day/IBOV).
 - `process_file.py`: Processa o arquivo CSV baixado da B3 para um CSV intermediário, tratando e limpando caracteres inválidos.
 - `create_parquet.py`: Cria um arquivo Parquet utilizando pandas, criando um DataFrame para processar os dados e salvando-os em um arquivo Parquet.
 - `upload_to_aws.py`: Submete o arquivo Parquet para a AWS, em um bucket chamado `fiap-tc-fase2-ml/RAW`.
